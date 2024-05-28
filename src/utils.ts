@@ -1,16 +1,24 @@
 
-export function setCounterColor(value:number) {
+export function getCounterColor(value:number) {
     
-    if (value <= 10 ){
+    value = Math.max(1, Math.min(30, value));
 
-        return '#54F024'
+    
+    let normalizedValue = (value - 1) / 29;
 
-    }
-
-    if ( value <= 20) {
+    if (normalizedValue <= 0.5) {
         
-        return '#FFFF00'
+        let ratio = normalizedValue / 0.5;
+        let r = Math.round(255 * ratio);
+        let g = 255;
+        let b = 0;
+        return `rgb(${r}, ${g}, ${b})`;
+    } else {
+       
+        let ratio = (normalizedValue - 0.5) / 0.5;
+        let r = 255;
+        let g = Math.round(255 * (1 - ratio));
+        let b = 0;
+        return `rgb(${r}, ${g}, ${b})`;
     }
-
-    return 'red'
 }

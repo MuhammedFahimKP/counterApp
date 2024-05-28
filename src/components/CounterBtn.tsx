@@ -1,4 +1,4 @@
-import { setCounterColor } from "../utils";
+import { getCounterColor } from "../utils";
 
 interface Props {
   onIncrement: () => void;
@@ -33,7 +33,7 @@ const CounterBtn = ({ onIncrement, onDecrement, value }: Props) => {
         id="counter"
         className="text-md font-bold mx-4"
         style={{
-          color: setCounterColor(value),
+          color: getCounterColor(value),
         }}
       >
         {value}
