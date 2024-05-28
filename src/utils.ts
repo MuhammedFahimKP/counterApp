@@ -3,13 +3,13 @@ export function setCounterColor(value:number) {
     
     if (value <= 10 ){
 
-        return 'green'
+        return '#54F024'
 
     }
 
     if ( value <= 20) {
         
-        return 'yellow'
+        return '#FFFF00'
     }
 
     return 'red'
