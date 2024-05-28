@@ -1,3 +1,5 @@
+import { setCounterColor } from "../utils";
+
 interface Props {
   onIncrement: () => void;
   onDecrement: () => void;
@@ -27,7 +29,13 @@ const CounterBtn = ({ onIncrement, onDecrement, value }: Props) => {
           />
         </svg>
       </button>
-      <span id="counter" className="text-md font-bold mx-4  ">
+      <span
+        id="counter"
+        className="text-md font-bold mx-4"
+        style={{
+          color: setCounterColor(value),
+        }}
+      >
         {value}
       </span>
       <button

@@ -34,11 +34,11 @@ const Counter = ({ value, no, id }: Props) => {
         </div>
       </div>
       <div className="w-full h-8 flex items-center justify-end px-4 mt-2 gap-2">
-        <button className="bg-sky-100  text-blue-500 px-4 py-2 rounded-md border border-blue-500">
-          <IoMdRefresh
-            className="size-4 "
-            onClick={() => dispatch(resetItem({ key: id }))}
-          />
+        <button
+          className="bg-sky-100  text-blue-500 px-4 py-2 rounded-md border border-blue-500"
+          onClick={() => dispatch(resetItem({ key: id }))}
+        >
+          <IoMdRefresh className="size-4 " />
         </button>
         <button
           className="bg-rose-100  text-red-500 px-4 py-2 rounded-md border border-red-500"

@@ -1,66 +1,66 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { type PayloadAction, createSlice } from "@reduxjs/toolkit"
 
-import { v4  as uuid4 } from 'uuid';
+import { v4 as uuid4 } from 'uuid';
 
 type State = {
-    [key:string] : number;
+    [key: string]: number;
 }
 
-const initialState : State = {}
+const initialState: State = {}
 
 
 type Payload = {
-    key:string;
+    key: string;
 }
 
 const counterSlice = createSlice({
-    name:'counter',
+    name: 'counter',
     initialState,
     reducers: {
-        
-        initItem(state:State){
+
+        initItem(state: State) {
             const key = uuid4();
             state[key] = 0;
 
 
         },
 
-        increamentItem(state:State,actions:PayloadAction<Payload>){
-            if (state.hasOwnProperty(actions.payload.key)){
+        increamentItem(state: State, actions: PayloadAction<Payload>) {
+            if (state.hasOwnProperty(actions.payload.key)) {
                 state[actions.payload.key] += 1
             }
         },
 
-        decrementItem(state:State,actions:PayloadAction<Payload>){
-            if (state.hasOwnProperty(actions.payload.key) && state[actions.payload.key] > 0){
+        decrementItem(state: State, actions: PayloadAction<Payload>) {
+            if (state.hasOwnProperty(actions.payload.key) && state[actions.payload.key] > 0) {
                 state[actions.payload.key] -= 1
             }
 
 
         },
 
-        resetItem(state:State,actions:PayloadAction<Payload>){
-            if (state.hasOwnProperty(actions.payload.key)){
+        resetItem(state: State, actions: PayloadAction<Payload>) {
+            if (state.hasOwnProperty(actions.payload.key)) {
                 state[actions.payload.key] = 0
-              
+
 
             }
-            
+
         },
 
-        resetAll(state:State) {
-            if(Object.keys(state).length >  0){
-                
+        resetAll(state: State) {
+            if (Object.keys(state).length > 0) {
 
-                Object.keys(state).forEach((key:string) => {
+
+                Object.keys(state).forEach((key: string) => {
                     state[key] = 0;
                 })
             }
 
         },
 
-        destroyItem(state:State,actions:PayloadAction<Payload>) {
-            if (state.hasOwnProperty(actions.payload.key)){
+        destroyItem(state: State, actions: PayloadAction<Payload>) {
+            if (state.hasOwnProperty(actions.payload.key)) {
                 delete state[actions.payload.key]
             }
         }
@@ -68,7 +68,7 @@ const counterSlice = createSlice({
 })
 
 export default counterSlice.reducer
-export const {initItem,increamentItem,decrementItem,destroyItem,resetItem,resetAll} = counterSlice.actions
+export const { initItem, increamentItem, decrementItem, destroyItem, resetItem, resetAll } = counterSlice.actions
 
 
 
